@@ -44,7 +44,7 @@ function ChatWindow() {
                     role: "user",
                     content: prompt
                 },{
-                    role: "assistant",
+                    role: "Assistant",
                     content: reply
                 }]
             ));
