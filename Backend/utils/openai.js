@@ -1,28 +1,27 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import "dotenv/config";
 
-const getOpenAIAPIResponse = async(message) => {
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${process.env.GEMINI_API_KEY}`
-        },
-        body: JSON.stringify({
-            model: "gemini-1.5-flash",
-            messages: [{
-                role: "user",
-                content: message
-            }]
-        })
-    };
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-    try {
-        const response = await fetch("https://api.openai.com/v1/chat/completions", options);
-        const data = await response.json();
-        return data.choices[0].message.content; //reply
-    } catch(err) {
-        console.log(err);
-    }
-}
+const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-export default getOpenAIAPIResponse;
+const getGeminiAPIResponse = async (message) => {
+  try {
+    const result = await model.generateContent({
+      contents: [
+        {
+          role: "user",
+          parts: [{ text: message }]
+        }
+      ]
+    });
+
+    return result.response.text();
+  } catch (error) {
+    console.error("Gemini Error:", error);
+    return "Gemini API Error";
+  }
+};
+
+export default getGeminiAPIResponse;
