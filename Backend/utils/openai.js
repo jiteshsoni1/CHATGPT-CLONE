@@ -12,9 +12,9 @@ const getGeminiAPIResponse = async (message) => {
       contents: [
         {
           role: "user",
-          parts: [{ text: message }]
-        }
-      ]
+          parts: [{ text: message }],
+        },
+      ],
     });
 
     return result.response.text();
