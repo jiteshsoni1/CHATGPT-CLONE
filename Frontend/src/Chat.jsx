@@ -9,6 +9,7 @@ function Chat() {
   const { newChat, prevChats, reply } = useContext(MyContext);
   const [latestReply, setLatestReply] = useState(null);
 
+
   useEffect(() => {
     if (reply === null) {
       setLatestReply(null); //prevchat load

@@ -2,7 +2,7 @@ import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext.jsx";
 import { v1 as uuidv1 } from "uuid";
-
+import servers from "./environment.js";
 function Sidebar() {
   const {
     allThreads,
@@ -13,11 +13,12 @@ function Sidebar() {
     setReply,
     setCurrThreadId,
     setPrevChats,
+
   } = useContext(MyContext);
 
   const getAllThreads = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/thread");
+      const response = await fetch(`${servers}/api/thread`);
       const res = await response.json();
       const filteredData = res.map((thread) => ({
         threadId: thread.threadId,
