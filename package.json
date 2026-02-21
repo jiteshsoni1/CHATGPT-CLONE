@@ -1,0 +1,26 @@
+{
+  "name": "sigma-gpt",
+  "version": "1.0.0",
+  "description": "A full-stack AI chat application built with React and OpenAI APIs, enabling multi-thread interactions similar to ChatGPT.",
+  "main": "index.js",
+  "scripts": {
+     "backend": "npm start --prefix backend",
+    "frontend": "npm run dev --prefix frontend",
+     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiteshsoni1/SigmaGpt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jiteshsoni1/SigmaGpt/issues"
+  },
+  "homepage": "https://github.com/jiteshsoni1/SigmaGpt#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

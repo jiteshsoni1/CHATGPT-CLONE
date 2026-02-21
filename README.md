@@ -43,3 +43,6 @@ Learn external AI API integration
 Build conversational UIs like ChatGPT
 
 Explore component-based UI + backend messaging workflow
+
+
+  <!-- npm run dev -->

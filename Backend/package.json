@@ -1,5 +1,10 @@
 {
+  "name": "sigma-gpt-backend",
+  "version": "1.0.0",
   "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.8.0",
     "cors": "^2.8.5",
